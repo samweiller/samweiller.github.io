@@ -93,7 +93,7 @@ function getSpotify(url, data, fireAway) {
             console.log('FIRE THE CANNON!');
             var TestObject = Parse.Object.extend("TestObject");
             var testObject = new TestObject();
-            testObject.save({foo: "bar"}, {
+            testObject.save({foo: r}, {
               success: function(object) {
                 $(".success").show();
               },
