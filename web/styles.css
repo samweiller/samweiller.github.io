@@ -10,7 +10,7 @@ body {
     height: 100%;
 }  
 
-#ttext {
+.ttext {
     margin-top:10px;
     margin-bottom:30px;
     width: 80%;
@@ -20,7 +20,7 @@ body {
 }
 
 .loginSuccess {
-  
+
 }
 
 #ttitle {
