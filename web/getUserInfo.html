@@ -54,7 +54,7 @@ function parseArgs() {
     var hash = location.hash.replace(/#/g, '');
     var all = hash.split('&');
     var args = {};
-    _.each(all, function(keyvalue) {
+    __.each(all, function(keyvalue) {
         var kv = keyvalue.split('=');
         var key = kv[0];
         var val = kv[1];
