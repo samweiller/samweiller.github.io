@@ -19,7 +19,7 @@ body {
 
 }
 
-.successtext {
+#successtext {
     margin-top:10px;
     margin-bottom:30px;
     width: 80%;

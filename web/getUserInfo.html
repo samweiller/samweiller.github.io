@@ -32,7 +32,7 @@
         <p><a class="btn btn-primary btn-lg" id='go' role="button" onclick="authorizeUser()">Login with Spotify</a></p>
         <!-- <button class="button">Login with Spotify</button> -->
 
-        <p class="successtext">
+        <p id="successtext">
         </p>
 
         </div>
@@ -84,7 +84,8 @@ function getSpotify(url, data) {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function(r) {
-          console.log('GET success')
+          console.log('GET success');
+          console.log(r);
         },
         error: function(r) {
           console.log('GET fail')
@@ -107,6 +108,8 @@ function getTopTracks(uid) {
   }
 
   getSpotify(url, data);
+
+  // return 
 }
 
 
@@ -119,7 +122,7 @@ $(document).ready(
         accessToken = args['access_token']
         $(".wrapper").hide();
         $(".ttext").hide();
-        $(".successtext").text('Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.');
+        $("#successtext").text('Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.');
 
         fetchCurrentUserProfile(function(user) {
                 if (user) {
