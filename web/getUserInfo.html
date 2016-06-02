@@ -76,7 +76,7 @@ function parseArgs() {
     return args;
 }
 
-function getSpotify(url, data) {
+function getSpotify(url, data, fireAway) {
     $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -86,6 +86,10 @@ function getSpotify(url, data) {
         success: function(r) {
           console.log('GET success');
           console.log(r);
+          // Launch these off to wherever.
+          if (fireAway == 1) {
+            console.log('FIRE THE CANNON!');
+          }
           return r;
         },
         error: function(r) {
@@ -98,7 +102,7 @@ function getSpotify(url, data) {
 
 function fetchCurrentUserProfile() {
     var url = 'https://api.spotify.com/v1/me';
-    getSpotify(url, null);
+    getSpotify(url, null, 0);
 }
 
 function getTopTracks(uid) {
@@ -110,7 +114,7 @@ function getTopTracks(uid) {
     time_range:'medium_term'
   }
 
-  results = getSpotify(url, data);
+  results = getSpotify(url, data, 1);
 
   return results;
 }
@@ -124,7 +128,7 @@ function getTopArtists(uid) {
     time_range:'medium_term'
   }
 
-  results = getSpotify(url, data);
+  results = getSpotify(url, data, 1);
 
   return results;
 }
@@ -164,8 +168,6 @@ $(document).ready(
       console.log(args);
       console.log('hello');
     }
-
-
   )
 
 
