@@ -33,8 +33,7 @@
         <!-- <button class="button">Login with Spotify</button> -->
 
         <p class="successtext">
-        Thanks for authorizing the app! We're going to pull some information about your favorite songs and artists.
-        Once that is done, we will show your top five most played songs and artists below.</p>
+        </p>
 
         </div>
       </div>
@@ -51,6 +50,8 @@
 <script type="text/javascript">
 
 var accessToken = null;
+var curUserID = null;
+
 	
 function authorizeUser() {
     var scopes = 'playlist-read-private playlist-modify-private playlist-modify-public';
@@ -120,7 +121,7 @@ $(document).ready(
         accessToken = args['access_token']
         $(".wrapper").hide();
         $(".ttext").hide();
-        $(".successtext").show();
+        $(".successtext").text('Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.');
 
         fetchCurrentUserProfile(function(user) {
                 if (user) {
@@ -131,9 +132,10 @@ $(document).ready(
                     error("Trouble getting the user profile");
                 }
             });
+        getTopTracks(curUserID, callback)
         // run the spotify pull functions!
       } else {
-        $(".successtext").hide();
+        // $(".successtext").hide();
         console.log('no pirates were found.')
       }
       console.log(args);
