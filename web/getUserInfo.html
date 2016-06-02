@@ -131,6 +131,7 @@ function getTopTracks(uid) {
   results = getSpotify(url, data, 1, callback);
   console.log('TopTracks:')
   console.log(results)
+  callback();
   return results;
 }
 
