@@ -31,6 +31,11 @@
         <div class="wrapper">
         <p><a class="btn btn-primary btn-lg" id='go' role="button" onclick="authorizeUser()">Login with Spotify</a></p>
         <!-- <button class="button">Login with Spotify</button> -->
+
+        <p class="successtext">
+        Thanks for authorizing the app! We're going to pull some information about your favorite songs and artists.
+        Once that is done, we will show your top five most played songs and artists below.</p>
+
         </div>
       </div>
   </div>
@@ -45,8 +50,9 @@
 
 <script type="text/javascript">
 
+var accessToken = null;
 	
-	function authorizeUser() {
+function authorizeUser() {
     var scopes = 'playlist-read-private playlist-modify-private playlist-modify-public';
     var url = 'https://accounts.spotify.com/authorize?client_id=' + SPOTIFY_CLIENT_ID +
         '&response_type=token' +
@@ -69,13 +75,61 @@ function parseArgs() {
     return args;
 }
 
+function getSpotify(url, data, callback) {
+    $.ajax(url, {
+        dataType: 'json',
+        data: data,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function(r) {
+            callback(r);
+        },
+        error: function(r) {
+            callback(null);
+        }
+    });
+}
+
+function fetchCurrentUserProfile(callback) {
+    var url = 'https://api.spotify.com/v1/me';
+    getSpotify(url, null, callback);
+}
+
+function getTopTracks(uid, callback) {
+  // https://api.spotify.com/v1/me/top/{type}
+  var url = 'https://api.spotify.com/v1/me/top/tracks'
+  var data = {
+    limit:50,
+    offset:0,
+    time_range:'medium_term'
+  }
+  
+  getSpotify(url, data, callback);
+}
+
+
+
 $(document).ready(
     function() {
       var args = parseArgs();
       if ('access_token' in args){
         console.log('ARGGGGGGGs!')
+        accessToken = args['access_token']
         $(".wrapper").hide();
         $(".ttext").hide();
+        $(".successtext").show();
+
+        fetchCurrentUserProfile(function(user) {
+                if (user) {
+                    curUserID = user.id;
+                    // $("#who").text(user.id);
+                    // loadPlaylists(user.id);
+                } else {
+                    error("Trouble getting the user profile");
+                }
+            });
+        // run the spotify pull functions!
       } else {
         console.log('no pirates were found.')
       }
