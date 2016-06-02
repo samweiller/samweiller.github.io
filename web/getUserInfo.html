@@ -78,7 +78,7 @@ function parseArgs() {
     return args;
 }
 
-function getSpotify(url, data, fireAway) {
+function getSpotify(url, data, fireAway, callback) {
     $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -87,13 +87,16 @@ function getSpotify(url, data, fireAway) {
         },
         success: function(r) {
           console.log('GET success');
-          // console.log(r);
+          console.log(r);
           // Launch these off to wherever.
+
+          callback(r);
+
           if (fireAway == 1) {
             console.log('FIRE THE CANNON!');
             var TestObject = Parse.Object.extend("TestObject");
             var testObject = new TestObject();
-            testObject.save({foo: 'bar'}, {
+            testObject.save({foo: r}, {
               success: function(object) {
                 $(".success").show();
               },
@@ -102,11 +105,10 @@ function getSpotify(url, data, fireAway) {
               }
             });
           }
-          return r;
         },
         error: function(r) {
           console.log('GET fail')
-          return r;
+          callback(null);
         }
     });
 
@@ -126,9 +128,9 @@ function getTopTracks(uid) {
     time_range:'medium_term'
   }
 
-  results = getSpotify(url, data, 1);
+  results = getSpotify(url, data, 1, callback);
   console.log('TopTracks:')
-  console.log(r)
+  console.log(results)
   return results;
 }
 
@@ -141,7 +143,7 @@ function getTopArtists(uid) {
     time_range:'medium_term'
   }
 
-  results = getSpotify(url, data, 1);
+  results = getSpotify(url, data, 1, callback);
 
   return results;
 }
