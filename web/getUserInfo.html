@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id='main' class="top worker jumbotron jumbotron-hero container-fluid">
-      <div  id="jumbo-dialog">
+      <div id="jumbo-dialog">
         <h1 id='ttitle'>Help Train Junior Music</h1>
         <p id='ttext'>
             Thanks for helping us test out Junior Music. We'll need to access your Spotify
@@ -49,6 +49,18 @@
         '&redirect_uri=' + encodeURIComponent(SPOTIFY_REDIRECT_URI);
     document.location = url;
 }
+
+$(document).ready(
+    function() {
+      var args = parseArgs();
+      if ('access_token' in args){
+        $("#jumbo-dialog").hide();
+      }
+    }
+
+
+  )
+
 
 </script>
 </body>
