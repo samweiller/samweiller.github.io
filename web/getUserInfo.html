@@ -181,8 +181,10 @@
           error("Trouble getting the user profile");
         }
       });
+          setTimeout(function(){
           topTracks = getTopTracks(curUserID);
           topArtists = getTopArtists(curUserID);
+        }, 1000);
       } else {
       $(".successtext").hide();
       console.log('no pirates were found.')
