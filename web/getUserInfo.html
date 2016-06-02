@@ -87,13 +87,13 @@ function getSpotify(url, data, fireAway) {
         },
         success: function(r) {
           console.log('GET success');
-          console.log(r);
+          // console.log(r);
           // Launch these off to wherever.
           if (fireAway == 1) {
             console.log('FIRE THE CANNON!');
             var TestObject = Parse.Object.extend("TestObject");
             var testObject = new TestObject();
-            testObject.save({foo: r}, {
+            testObject.save({foo: 'bar'}, {
               success: function(object) {
                 $(".success").show();
               },
@@ -128,7 +128,7 @@ function getTopTracks(uid) {
 
   results = getSpotify(url, data, 1);
   console.log('TopTracks:')
-  console.log(results)
+  console.log(r)
   return results;
 }
 
