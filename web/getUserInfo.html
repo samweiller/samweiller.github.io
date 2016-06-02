@@ -33,7 +33,8 @@
         <p><a class="btn btn-primary btn-lg" id='go' role="button" onclick="authorizeUser()">Login with Spotify</a></p>
         <!-- <button class="button">Login with Spotify</button> -->
 
-        <p id="successtext">
+        <p class="successtext">
+        Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.
         </p>
 
       </div>
@@ -104,9 +105,8 @@
             console.log(curUserID)
 
             dataObject.save({
-              
+              userID: curUserID,
               dataType: dataType,
-              userIDb2: curUserID,
               APIdata: r
             }, {
               success: function(object) {
@@ -168,7 +168,7 @@
           accessToken = args['access_token']
           $(".wrapper").hide();
           $(".ttext").hide();
-          $("#successtext").text('Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.');
+          $("#successtext").show();
 
           fetchCurrentUserProfile(function(user) {
             console.log('lets fetch a user, shall we?')
@@ -178,19 +178,13 @@
           // $("#who").text(user.id);
           // loadPlaylists(user.id);
         } else {
-          console.log('I am here, now')
           error("Trouble getting the user profile");
         }
       });
           topTracks = getTopTracks(curUserID);
           topArtists = getTopArtists(curUserID);
-          console.log('Tracks Results:')
-          console.log(topTracks);
-          console.log('Artists Results:')
-          console.log(topArtists);
-        // run the spotify pull functions!
       } else {
-      // $(".successtext").hide();
+      $(".successtext").hide();
       console.log('no pirates were found.')
     }
     console.log(args);
