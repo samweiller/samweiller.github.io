@@ -116,7 +116,7 @@ function getSpotify(url, data, fireAway, callback) {
 
 function fetchCurrentUserProfile() {
     var url = 'https://api.spotify.com/v1/me';
-    getSpotify(url, null, 0);
+    getSpotify(url, null, 0, callback);
 }
 
 function getTopTracks(uid) {
