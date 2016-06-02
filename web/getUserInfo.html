@@ -69,8 +69,12 @@ function parseArgs() {
 $(document).ready(
     function() {
       var args = parseArgs();
-      var token = args['access_token']
-      console.log(token);
+      if ('access_token' in args){
+        console.log('ARGGGGGGGs!')
+      } else {
+        console.log('no pirates were found.')
+      }
+      console.log(args);
       console.log('hello');
     }
 
