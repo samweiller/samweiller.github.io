@@ -76,7 +76,7 @@ function parseArgs() {
     return args;
 }
 
-function getSpotify(url, data, callback) {
+function getSpotify(url, data) {
     $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -85,21 +85,19 @@ function getSpotify(url, data, callback) {
         },
         success: function(r) {
           console.log('GET success')
-            callback(r);
         },
         error: function(r) {
           console.log('GET fail')
-            callback(null);
         }
     });
 }
 
-function fetchCurrentUserProfile(callback) {
+function fetchCurrentUserProfile() {
     var url = 'https://api.spotify.com/v1/me';
-    getSpotify(url, null, callback);
+    getSpotify(url, null);
 }
 
-function getTopTracks(uid, callback) {
+function getTopTracks(uid) {
   // https://api.spotify.com/v1/me/top/{type}
   var url = 'https://api.spotify.com/v1/me/top/tracks'
   var data = {
@@ -108,7 +106,7 @@ function getTopTracks(uid, callback) {
     time_range:'medium_term'
   }
 
-  getSpotify(url, data, callback);
+  getSpotify(url, data);
 }
 
 
@@ -132,7 +130,7 @@ $(document).ready(
                     error("Trouble getting the user profile");
                 }
             });
-        getTopTracks(curUserID, callback)
+        getTopTracks(curUserID)
         // run the spotify pull functions!
       } else {
         // $(".successtext").hide();
