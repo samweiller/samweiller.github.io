@@ -86,13 +86,14 @@ function getSpotify(url, data) {
         success: function(r) {
           console.log('GET success');
           // console.log(r);
+          return r;
         },
         error: function(r) {
           console.log('GET fail')
+          return r;
         }
     });
 
-    return r;
 }
 
 function fetchCurrentUserProfile() {
