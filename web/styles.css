@@ -28,6 +28,15 @@ body {
     text-align: justify;
 }
 
+.successtext2 {
+    margin-top:10px;
+    margin-bottom:30px;
+    width: 90%;
+    margin-left:30px;
+    margin-right:auto;
+    text-align: justify;
+}
+
 .loginSuccess {
 
 }
