@@ -87,27 +87,27 @@ function getSpotify(url, data, fireAway) {
         },
         success: function(r) {
           console.log('GET success');
-          console.log(r);
-          // Launch these off to wherever.
-          if (fireAway == 1) {
-            console.log('FIRE THE CANNON!');
-            var TestObject = Parse.Object.extend("TestObject");
-            var testObject = new TestObject();
-            testObject.save({foo: r}, {
-              success: function(object) {
-                $(".success").show();
-              },
-              error: function(model, error) {
-                $(".error").show();
-              }
-            });
-          }
-          return r;
-        },
-        error: function(r) {
-          console.log('GET fail')
-          return r;
-        }
+          // console.log(r);
+        //   // Launch these off to wherever.
+        //   if (fireAway == 1) {
+        //     console.log('FIRE THE CANNON!');
+        //     var TestObject = Parse.Object.extend("TestObject");
+        //     var testObject = new TestObject();
+        //     testObject.save({foo: r}, {
+        //       success: function(object) {
+        //         $(".success").show();
+        //       },
+        //       error: function(model, error) {
+        //         $(".error").show();
+        //       }
+        //     });
+        //   }
+        //   return r;
+        // },
+        // error: function(r) {
+        //   console.log('GET fail')
+        //   return r;
+        // }
     });
 
 }
@@ -127,6 +127,7 @@ function getTopTracks(uid) {
   }
 
   results = getSpotify(url, data, 1);
+  console.log(results)
 
   return results;
 }
@@ -135,7 +136,7 @@ function getTopArtists(uid) {
   // https://api.spotify.com/v1/me/top/{type}
   var url = 'https://api.spotify.com/v1/me/top/artists'
   var data = {
-    limit:50,
+    limit:15,
     offset:0,
     time_range:'medium_term'
   }
