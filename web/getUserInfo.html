@@ -69,12 +69,8 @@ function parseArgs() {
 $(document).ready(
     function() {
       var args = parseArgs();
-      if ('access_token' in args){
-        $(".loginSuccess").show();
-      } else {
-        $(".loginSuccess").hide();
-      }
-      console.log(args);
+      var token = args['access_token']
+      console.log(token);
       console.log('hello');
     }
 
