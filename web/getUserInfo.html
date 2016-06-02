@@ -165,9 +165,10 @@
         if ('access_token' in args){
           console.log('ARGGGGGGGs!')
           accessToken = args['access_token']
-          // $(".wrapper").hide();
-          $(".ttext").hide();
+          $(".wrapper").hide();
           $(".successtext").show();
+          $(".ttext").hide();
+          
 
           fetchCurrentUserProfile(function(user) {
             console.log('lets fetch a user, shall we?')
