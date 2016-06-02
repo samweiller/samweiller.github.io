@@ -54,7 +54,9 @@ $(document).ready(
     function() {
       var args = parseArgs();
       if ('access_token' in args){
-        $(".jumbo-dialog").hide();
+        $(".loginSuccess").show();
+      } else {
+        $(".loginSuccess").hide();
       }
     }
 
