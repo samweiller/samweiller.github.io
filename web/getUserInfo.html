@@ -168,6 +168,7 @@
           $("#successtext").text('Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Once that is done, we will show your top five most played songs and artists below.');
 
           fetchCurrentUserProfile(function(user) {
+            console.log('lets fetch a user, shall we?')
             if (user) {
               curUserID = user.id;
               console.log(curUserID)
