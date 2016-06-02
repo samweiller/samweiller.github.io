@@ -65,6 +65,10 @@ body {
 }
 
 .jumbotron {
+  
+}
+
+#main.jumbotron {
   margin-bottom: 10px;
 }
 
