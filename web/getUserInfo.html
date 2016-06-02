@@ -76,7 +76,7 @@ function parseArgs() {
     return args;
 }
 
-function result = getSpotify(url, data) {
+function getSpotify(url, data) {
     $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -100,7 +100,7 @@ function fetchCurrentUserProfile() {
     getSpotify(url, null);
 }
 
-function topTracksObject = getTopTracks(uid) {
+function getTopTracks(uid) {
   // https://api.spotify.com/v1/me/top/{type}
   var url = 'https://api.spotify.com/v1/me/top/tracks'
   var data = {
@@ -114,7 +114,7 @@ function topTracksObject = getTopTracks(uid) {
   return results;
 }
 
-function topArtistsObject = getTopArtists(uid) {
+function getTopArtists(uid) {
   // https://api.spotify.com/v1/me/top/{type}
   var url = 'https://api.spotify.com/v1/me/top/artists'
   var data = {
