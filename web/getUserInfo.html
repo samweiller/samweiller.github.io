@@ -76,7 +76,7 @@ function parseArgs() {
     return args;
 }
 
-function getSpotify(url, data) {
+function result = getSpotify(url, data) {
     $.ajax(url, {
         dataType: 'json',
         data: data,
@@ -85,12 +85,14 @@ function getSpotify(url, data) {
         },
         success: function(r) {
           console.log('GET success');
-          console.log(r);
+          // console.log(r);
         },
         error: function(r) {
           console.log('GET fail')
         }
     });
+
+    return r;
 }
 
 function fetchCurrentUserProfile() {
@@ -98,7 +100,7 @@ function fetchCurrentUserProfile() {
     getSpotify(url, null);
 }
 
-function getTopTracks(uid) {
+function topTracksObject = getTopTracks(uid) {
   // https://api.spotify.com/v1/me/top/{type}
   var url = 'https://api.spotify.com/v1/me/top/tracks'
   var data = {
@@ -107,9 +109,23 @@ function getTopTracks(uid) {
     time_range:'medium_term'
   }
 
-  getSpotify(url, data);
+  results = getSpotify(url, data);
 
-  // return 
+  return results;
+}
+
+function topArtistsObject = getTopArtists(uid) {
+  // https://api.spotify.com/v1/me/top/{type}
+  var url = 'https://api.spotify.com/v1/me/top/artists'
+  var data = {
+    limit:50,
+    offset:0,
+    time_range:'medium_term'
+  }
+
+  results = getSpotify(url, data);
+
+  return results;
 }
 
 
@@ -133,7 +149,12 @@ $(document).ready(
                     error("Trouble getting the user profile");
                 }
             });
-        getTopTracks(curUserID)
+        topTracks = getTopTracks(curUserID);
+        topArtists = getTopArtists(curUserID);
+        console.log('Tracks Results:')
+        console.log(topTracks);
+        console.log('Artists Results:')
+        console.log(topArtists);
         // run the spotify pull functions!
       } else {
         // $(".successtext").hide();
