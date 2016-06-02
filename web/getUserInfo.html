@@ -101,9 +101,12 @@
             var DataObject = Parse.Object.extend("DataObject");
             var dataObject = new DataObject();
 
+            console.log(curUserID)
+
             dataObject.save({
-              userIDb2: curUserID,
+              
               dataType: dataType,
+              userIDb2: curUserID,
               APIdata: r
             }, {
               success: function(object) {
