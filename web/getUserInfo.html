@@ -38,7 +38,7 @@
 <p>Hello, world!</p>
 
 </div>
-<script src="lib/bootstrap.min.js"></script>
+<!-- <script src="lib/bootstrap.min.js"></script> -->
 <script src="lib/underscore-min.js"></script>
 <script src="config.js"></script>
 <script type="text/javascript">
@@ -56,7 +56,7 @@ function parseArgs() {
     var hash = location.hash.replace(/#/g, '');
     var all = hash.split('&');
     var args = {};
-    __.each(all, function(keyvalue) {
+    _.each(all, function(keyvalue) {
         var kv = keyvalue.split('=');
         var key = kv[0];
         var val = kv[1];
