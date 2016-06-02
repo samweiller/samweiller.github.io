@@ -114,7 +114,7 @@ function getSpotify(url, data, fireAway, callback) {
 
 }
 
-function fetchCurrentUserProfile() {
+function fetchCurrentUserProfile(callback) {
     var url = 'https://api.spotify.com/v1/me';
     getSpotify(url, null, 0, callback);
 }
