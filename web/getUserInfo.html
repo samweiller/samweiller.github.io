@@ -116,6 +116,8 @@
                 $(".error").show();
               }
             });
+          } else if (fireAway == 0) {
+            curUserID = user.id
           }
         },
 
@@ -130,7 +132,6 @@
       var url = 'https://api.spotify.com/v1/me';
       console.log('fetching current user')
       getSpotify(url, null, 0);
-      curUserID = user.id
     }
 
     function getTopTracks(uid) {
