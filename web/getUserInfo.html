@@ -190,11 +190,12 @@
           topArtists = getTopArtists(curUserID);
         }, 1000);
 
-          setTimeout(funtion(){
-
+          setTimeout(function(){
+            $(".successtext").show();
           }, 6000);
       } else {
       $(".successtext").hide();
+      $(".successtext2").hide();
       console.log('no pirates were found.')
     }
     console.log(args);
