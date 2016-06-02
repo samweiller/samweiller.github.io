@@ -1,0 +1,45 @@
+body {
+  /* Margin bottom by footer height */
+  /*margin-bottom: 28px;*/
+  padding-top: 0;
+  /*background:rgb(129,175,177) !important;*/
+}
+
+#main {
+    background-image: url(images/backImage.jpg);
+    height: 100%;
+}  
+
+#ttext {
+    margin-top:10px;
+    margin-bottom:30px;
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+#ttitle {
+    color:white;
+    text-align: center;
+}
+
+#jumbo-dialog {
+    color:white;
+    background: rgba(60,60,60, 0.6);
+    border-radius:15px;
+}
+
+.wrapper {
+	align-content: center;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+
+
