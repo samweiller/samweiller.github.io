@@ -30,7 +30,10 @@
       <p class='ttext'>Click the 'Login with Spotify' button below to go to the account authorization page.</p>
       <p class='successtext'>
         Thanks for authorizing the app! We are going to pull some information about your favorite songs and artists. Please
-        do NOT refresh your browser or hit the back button. 
+        do <b>not</b> refresh your browser or hit the back button. 
+        </p>
+        <p class='successtext2'>
+        All done! You may now close this window. 
         </p>
         <br />
       <div class="wrapper">
@@ -186,6 +189,10 @@
           topTracks = getTopTracks(curUserID);
           topArtists = getTopArtists(curUserID);
         }, 1000);
+
+          setTimeout(funtion(){
+
+          }, 6000);
       } else {
       $(".successtext").hide();
       console.log('no pirates were found.')

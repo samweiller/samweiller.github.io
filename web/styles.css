@@ -13,19 +13,19 @@ body {
 .ttext {
     margin-top:10px;
     margin-bottom:30px;
-    width: 95%;
+    width: 90%;
     margin-left:30px;
     margin-right:auto;
-    text-align: center;
+    text-align: justify;
 }
 
 .successtext {
     margin-top:10px;
     margin-bottom:30px;
-    width: 95%;
+    width: 90%;
     margin-left:30px;
     margin-right:auto;
-    text-align: center;
+    text-align: justify;
 }
 
 .loginSuccess {
