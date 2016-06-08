@@ -1,0 +1,34 @@
+.successtext {
+    margin-top:10px;
+    margin-bottom:30px;
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: justify;
+}
+
+h1 {
+	margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+
+#mountPoint {
+	width: 100%;
+}
+
+.buttonWrapper {
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 60%;
+}
+
+.buttonWrapper .btn-toolbar {
+	display: block;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
