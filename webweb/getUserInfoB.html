@@ -38,7 +38,7 @@
   
 
   <script src="lib/underscore-min.js"></script>
-  <script src="config.js"></script>
+  <script src="configMobile.js"></script>
   <script type="text/javascript" charset="utf-8" src="//cdnjs.cloudflare.com/ajax/libs/q.js/1.4.1/q.min.js"></script>
 
   <script type="text/javascript">
@@ -69,6 +69,11 @@
         args[key] = val;
       });
       return args;
+    }
+
+    function sendMessage(messageToSend){
+      var aMessage = {'command': messageToSend}
+      window.webkit.messageHandlers.interOp.postMessage(aMessage)
     }
 
     function getSpotify(url, data, fireAway) {
@@ -173,6 +178,7 @@
         }
       });
           setTimeout(function(){
+            sendMessage(curUserID)
           topTracks = getTopTracks(curUserID);
           topArtists = getTopArtists(curUserID);
         }, 1000);
