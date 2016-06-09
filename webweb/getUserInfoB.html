@@ -27,7 +27,7 @@
       
       <p class='ttext'>Click the 'Login with Spotify' button below to go to the account authorization page.</p>
       
-        
+        <p class='successtext'>Got it! You will be redirected shortly...</p>
       <div class="wrapper">
         <p><a class="btn btn-primary btn-lg" id='go' role="button" onclick="authorizeUser()">Login with Spotify</a></p>
       </div>
@@ -47,7 +47,7 @@
     var accessToken = null;
     var curUserID = null;
 
-    Parse.initialize("ci7TULHgjfXgAAMIE3RDRyEpMQCl9EYOTEtljsFf", "T5wIuiv7zKuCTLQJS7B9UhPw5Ra7yJvaH6rVK0ma");
+    Parse.initialize("DbIzrOrgg4QJ3x9OoKsvslFNhKeNjPn4nWIc6xrP", "w9uobx79p20tsFmZzPe7xsjOGOvNxRKYhDbpCrH5");
 
     function authorizeUser() {
       var scopes = 'user-top-read';
@@ -148,7 +148,7 @@
     function getTopArtists(uid) {
       var url = 'https://api.spotify.com/v1/me/top/artists'
       var data = {
-        limit:15,
+        limit:30,
         offset:0,
         time_range:'medium_term'
       }
