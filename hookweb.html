@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOOKZ</title>
+	<script type="text/javascript">
+		app.get('/webhook', function (req, res) {
+  if (req.query['hub.verify_token'] === 'castle_brain_table_foursquare_orientation_jupiter') {
+    res.send(req.query['hub.challenge']);
+  } else {
+    res.send('Error, wrong validation token');    
+  }
+});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
